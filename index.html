@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube</title>
+    <link rel="icon" type="image/x-icon" href="youtube.png">
+    <style>
+        .link{
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <input type="text" name="search" id="search" placeholder="Search for videos"><br>
+        <br>
+        <button type="submit" onclick="search()">Get Results</button>
+        <br>
+        <br>
+        <a class="link" href="#"></a>
+    </center>
+</body>
+<script>
+    function search(){
+        var search = document.getElementById("search");
+        var s = search.value;
+        let s1 = "";
+        for(i=0;i<s.length;i++){
+            if(s.charAt(i) != ' '){
+                s1 += s.charAt(i);
+            }
+            else{
+                s1 += '+';
+            }
+        }
+        console.log(s1);
+        var url = "https://www.youtube.com/results?search_query="+s1;
+        var href = document.querySelector(".link");
+        href.href = url;
+        href.innerText = "Click here for Related Videos";
+    }
+</script>
+</html>
